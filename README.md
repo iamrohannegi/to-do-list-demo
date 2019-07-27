@@ -15,5 +15,9 @@ Web application powered by Java, Spring, Hibernate that allows users to login/re
 3.If you used your own sql scripts, update the database information in persistence-mysql.properties in src/main/resources
 
 4.The application will ask you to either login or register a new user. (Check for dummy user login info in the sql scripts)
+![1](https://user-images.githubusercontent.com/16450711/61991976-a9ec2b00-b075-11e9-8b3c-112b45a07a9d.PNG)
+
+![1](https://user-images.githubusercontent.com/16450711/61992007-0cddc200-b076-11e9-9aeb-d3051daee716.PNG)
 
 5.Once logged in you can see your to-do list entries. You can also add new entries or update existing ones. 
+![todo](https://user-images.githubusercontent.com/16450711/61992024-40205100-b076-11e9-943b-6f938d322d30.png)
