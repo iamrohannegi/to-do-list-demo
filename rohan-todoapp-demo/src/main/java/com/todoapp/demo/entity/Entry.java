@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,7 +22,8 @@ public class Entry {
 	private String username;
 	
 	@NotNull(message="*is required")
-	@Size(min=1, message="*is required")
+	@Size(min=1, message="is required")
+	@Size(max=40, message=" can't be greater than 40 characters.")
 	@Column(name="entry_text")
 	private String entryText;
 	

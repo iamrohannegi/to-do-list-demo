@@ -4,39 +4,42 @@
 
 <html>
 	<head>
-		<title>Registration Form</title>
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/form-page.css"/>
-		<style>
-			.error{
-				color:red;
-			}
-		</style>
+		<title>To-Do Demo - Rohan Negi</title>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login-style.css"/>
+	
 	</head>
 	
 	<body>
-		<div class="wrapper">
-			<section class="form-container">
-				<h2>Registration</h2>
-				<c:if test="${registrationError != null}">
-					<p class="error">${registrationError}</p>
-				</c:if>
-				
-				<form:form action="${pageContext.request.contextPath}/register/processRegistration" 
-						   method="POST" modelAttribute="newUser">
-						   
-					<span>User Name : </span><form:input path="userName" placeholder="username" class="field"/>
-					<form:errors path="userName" class="error"/>
-					<br><br>
-					<span>Password : </span><form:password path="password" placeholder="password" class="field"/>
-					<form:errors path="password" class="error"/>
-					<br><br>
+		<h1>Registration</h1>
+		<hr><br>
+		
+		<!-- Back to login button -->
+		<a href="${pageContext.request.contextPath}/loginPage" class="button redirect">Back to Login</a>
+		
+		<!-- Registration Form -->
+		<form:form action="${pageContext.request.contextPath}/register/processRegistration" 
+				   method="POST" modelAttribute="newUser">
+			
+			<c:if test="${registrationError != null}">
+				<p class="form-message error">${registrationError}</p>
+			</c:if>	   
+			
+			<c:if test="${registrationSuccessful != null}">
+				<p class="form-message registered">${registrationSuccessful}</p> 
+			</c:if>
+			
+			<span>User Name </span><span class="error"><form:errors path="userName"/></span>
+			<form:input path="userName" placeholder="username" class="field" maxlength="50"/>
+			<br><br>
+			
+			<span>Password </span><span class="error"><form:errors path="password"/></span>
+			<form:password path="password" placeholder="password" class="field" maxlength="60"/>
+			<br><br>
 
-					<input type="submit" value="Register" class="button field"/>
+			<input type="submit" value="Register" class="button form-submit"/>
 					
-					
-				</form:form>
-			</section>
-			<a href="${pageContext.request.contextPath}/loginPage" class="button">Back to Login</a>
-		</div>	
+		</form:form>
+		
+			
 	</body>
 </html>

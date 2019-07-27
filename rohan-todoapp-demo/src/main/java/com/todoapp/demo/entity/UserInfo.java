@@ -9,10 +9,12 @@ public class UserInfo {
 	
 	@NotNull(message= " is required")
 	@Size(min=1, message=" is required")
+	@Size(max=50, message=" can't be greater than 50 characters.")
 	private String userName;
-		
+	
 	@NotNull(message= " is required")
 	@Size(min=1, message=" is required")
+	@Size(max=68, message=" can't be greater than 60 characters.")
 	private String password;
 	
 	public UserInfo() {}

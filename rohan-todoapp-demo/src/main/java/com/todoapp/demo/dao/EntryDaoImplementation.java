@@ -20,6 +20,7 @@ public class EntryDaoImplementation implements EntryDao {
 	private SessionFactory sessionFactory;
 	
 
+	//Get all the to-do entries of the user logged in.
 	@Override
 	public List<Entry> getEntries() {
 		
@@ -35,6 +36,7 @@ public class EntryDaoImplementation implements EntryDao {
 		return entries;
 	}
 
+	//Get single to-do entry based on entry-id.
 	@Override
 	public Entry getEntry(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -42,6 +44,7 @@ public class EntryDaoImplementation implements EntryDao {
 		return entry;
 	}
 	
+	//Save or update to-do entry.
 	@Override
 	public void saveEntry(Entry entry) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -49,6 +52,7 @@ public class EntryDaoImplementation implements EntryDao {
 		currentSession.saveOrUpdate(entry);
 	}
 
+	//Delete to-do entry from the database based on entry id.
 	@Override
 	public void deleteEntry(int id) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -59,6 +63,7 @@ public class EntryDaoImplementation implements EntryDao {
 		}
 	}
 	
+	//Get user name of the user logged in.
 	private String getCurrentUserName() {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return user.getUsername();

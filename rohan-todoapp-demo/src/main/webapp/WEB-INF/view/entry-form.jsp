@@ -4,32 +4,30 @@
 
 <html>
 	<head>
-		<title>To do app</title>
+		<title>To-Do Demo - Rohan Negi</title>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 	</head>
 	<body>
-		<h2>Update entry</h2>
-		<br><hr>
+		<h1>Update Entry</h1>
+		<hr><br>
+		
+		<!-- Entry Form -->
 		<form:form action="processUpdatedEntry" modelAttribute="entry" method="POST">
 			<form:hidden path="id"/>
 			
-			<p><form:errors path="entryText"/></p>
-			Entry: <form:input path="entryText"/>
+			<p class="error"><form:errors path="entryText"/></p>
+			<form:input path="entryText" class="entryText" maxlength="40" />
 			
-			<input type="submit" value="Submit"/>
+			<input type="submit" class="button" value="Update"/>
 			
 		</form:form>
+		
+		<!--  Logout -->
+		<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+			<input type="submit" class="button logout" value="Logout"/>
+		</form:form>
+	
 	</body>
+
 </html>
 
-
-<!-- NOTES -->
-<!-- 
-	CREATE ENTRY FORM
-	CREATE PROPER CONTROLLERS FOR UPDATE DELETE REQUEST.
-	TRY TO FIGURE OUT A BETTER WAY TO DO THIS.
-
-
-
-
-
--->

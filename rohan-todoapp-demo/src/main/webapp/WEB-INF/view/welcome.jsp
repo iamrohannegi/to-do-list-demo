@@ -6,12 +6,12 @@
 <html>
 	<head>
 		<title>To-Do Demo - Rohan Negi</title>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/welcome.css"/>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 	</head>
 	
 	<body>
 		<h1>To-Do List</h1>
-		<br><hr>
+		<hr><br>
 		
 		<h2>Tasks</h2>
 				
@@ -35,8 +35,8 @@
 		<form:form action="processNewEntry" modelAttribute="entry" method="POST">
 			<form:hidden path="id"/>
 			
-			<p><form:errors path="entryText"/></p>
-			<form:input path="entryText" class="entryText" placeholder="Add a new entry..."/>
+			<p class="error"><form:errors path="entryText"/></p>
+			<form:input path="entryText" class="entryText" placeholder="Add a new entry...(maxlength:40)" maxlength="40"/>
 			
 			
 			<input type="submit" class="button" value="Add"/>

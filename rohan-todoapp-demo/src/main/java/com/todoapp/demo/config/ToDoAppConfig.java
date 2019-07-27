@@ -30,9 +30,11 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @PropertySource("classpath:persistence-mysql.properties")
 public class ToDoAppConfig implements WebMvcConfigurer{
 	
+	//Inject property file.
 	@Autowired
 	private Environment env;
 	
+	//Translates view-name to a URL to be rendered on browser							
 	@Bean
 	public ViewResolver viewResolver() {
 	
@@ -43,6 +45,8 @@ public class ToDoAppConfig implements WebMvcConfigurer{
 		return internalViewResolver;
 	}
 	
+	
+	//Set-up the database as our DataSource using information provided in property file.
 	@Bean
 	public DataSource dataSource() {
 		//Connection Pool
@@ -69,6 +73,7 @@ public class ToDoAppConfig implements WebMvcConfigurer{
 		
 		return theDataSource;
 	}
+	
 	
 	//To access static resources like css,etc.
 	@Override
